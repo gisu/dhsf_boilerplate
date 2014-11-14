@@ -1,0 +1,161 @@
+/* ==============================
+   Grid
+   ============================== */
+
+// full gid width
+@mixin gw() {
+  width: 100%;
+  max-width: $col_width * $cols;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// full Width
+@mixin fw() {
+  width: 100%;
+  max-width: none;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// with default padding
+@mixin col($i) {
+  @if $i <= $cols {
+    width: 100%;
+    max-width: $cw * $i;
+    padding-left: $cp;
+    padding-right: $cp;
+  } @else {
+    // include full width
+    @include fw();
+  }
+}
+
+// span without default padding
+@mixin span($i) {
+  @if $i <= $cols {
+    width: 100%;
+    max-width: $cw * $i;
+  } @else {
+    // include full width
+    @include fw();
+  }
+}
+
+// center container
+@mixin center() {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// push cols
+@mixin push($i) {
+  padding-left: $cw * $i;
+}
+
+// pull cols
+@mixin pull($i) {
+  padding-right: $cw * $i;
+}
+
+// clear push / pull
+@mixin clearpush {
+  padding-left: 0;
+}
+
+@mixin clearpull {
+  padding-right: 0;
+}
+
+
+/* ==============================
+   Breakpoints
+   ============================== */
+
+@mixin breakpoint($values,$direction: $media-direction) {
+  
+  @if length($values) > 1 {
+    $min: nth($values,1);
+    $max: nth($values,2);
+    
+    @if unitless($max) {
+      $max: $max + 0px;
+    }
+    
+    @if unitless($min) {
+      $min: $min + 0px
+    }
+    
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+    
+  } @else {
+
+    @if unitless($values) {
+      $values: $values + 0px;
+    }
+    
+    @media only screen and (#{$direction}-width: $values) {
+      @content;
+    }
+  }
+}
+
+  
+@mixin breakpointV($values,$direction: $media-direction-v) {
+  
+  @if length($values) > 1 {
+    $min: nth($values,1);
+    $max: nth($values,2);
+    
+    @if unitless($max) {
+      $max: $max + 0px;
+    }
+    
+    @if unitless($min) {
+      $min: $min + 0px
+    }
+    
+    @media screen and (min-height: $min) and (max-height: $max) {
+      @content;
+    }
+    
+  } @else {
+
+    @if unitless($values) {
+      $values: $values + 0px;
+    }
+    
+    @media only screen and (#{$direction}-height: $values) {
+      @content;
+    }
+  }
+}

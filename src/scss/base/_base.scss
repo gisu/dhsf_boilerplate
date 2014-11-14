@@ -1,0 +1,42 @@
+/* ==============================
+   Base
+   ============================== */
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: font('opensans');
+  font-weight: 300;
+  font-size: rem(16);
+  line-height: $line_height;
+}
+
+a {
+  color: color('gray');
+  text-decoration: none;
+  @include transition(color t('medium')); 
+
+  &:hover {
+    color: color('gray', 'dark');
+  }
+}
+
+::-moz-selection {
+  background: color('gray', 'x_dark');
+  color: color('white');
+  text-shadow: none;
+}
+::selection {
+  background: color('gray', 'x_dark');
+  color: color('white');
+  text-shadow: none;
+}
+

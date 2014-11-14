@@ -1,0 +1,68 @@
+/* ==============================
+   Colors
+   ============================== */
+
+@function color($color, $tone: 'base') {
+  @if map-has-key($colors, $color) {
+    @return map-get(map-get($colors, $color), $tone);
+  }
+
+  @warn "Unknown `#{$color}` in $colors.";
+  @return null;
+}
+
+
+/* ==============================
+   Fonts
+   ============================== */
+
+@function font($key) {
+  @if map-has-key($fonts, $key) {
+    @return map-get($fonts, $key);
+  }
+ 
+  @warn "Unknown `#{$key}` in $fonts.";
+  @return null;
+}
+
+
+/* ==============================
+   Timings
+   ============================== */
+
+// @function t($key) {
+//   @if type-of($breakpoint) == 'string' {
+//     @if map-has-key($timings, $key) {
+//       @return map-get($timings, $key);
+//     }
+   
+//     @warn "Unknown `#{$key}` in $timings.";
+//     @return null;
+//   }
+//   @else {
+//     @return ($key + 0s);
+//   }
+// }
+
+
+/* ==============================
+   Z-Index
+   ============================== */
+
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+// Examples
+// .overlay {
+//   z-index: z(overlay);
+// }
+
+// .element {
+//   z-index: (z(default) + 1);
+// }

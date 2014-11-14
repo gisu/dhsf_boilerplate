@@ -1,0 +1,33 @@
+// Bourbon
+@import "../../src/bower_components/bourbon/dist/bourbon";
+
+// My Stuff
+@import "partials/settings";
+@import "partials/functions";
+@import "partials/mixins";
+
+// Base
+@import "base/normalize";
+@import "base/base";
+@import "base/form";
+
+// Fonts
+//@import "fonts/...";
+
+// Layout
+@import "layout/header";
+@import "layout/nav";
+@import "layout/footer";
+@import "layout/home";
+
+// Modules
+@import "modules/animations";
+@import "modules/buttons";
+@import "modules/video";
+@import "modules/image";
+
+
+// Only for David 
+body {
+	background-color: red;
+}

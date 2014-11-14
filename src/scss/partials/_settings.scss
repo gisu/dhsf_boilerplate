@@ -1,0 +1,89 @@
+/* ==============================
+   Colors
+   Desc: http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+   ============================== */
+
+
+// Base Colors
+$_color_white:      #fff;
+$_color_gray:       #808080;
+$_color_black:      #000;
+
+
+// Palettes
+$colors: (
+  'white': (
+    'base':         $_color_white,
+    'dark':         darken($_color_white, 10%),
+  ),
+  'gray': (
+    'x_light':      lighten($_color_gray, 30%),
+    'light':        lighten($_color_gray, 20%),
+    'mid_light':    lighten($_color_gray, 10%),
+    'base':         $_color_gray,
+    'mid_dark':     darken($_color_gray, 10%),
+    'dark':         darken($_color_gray, 30%),
+    'x_dark':       darken($_color_gray, 40%),
+  ),    
+  'black': (
+    'base':         $_color_black,
+    'light':        lighten($_color_black, 10%),
+  ),
+);
+
+
+/* ==============================
+   Fonts
+   ============================== */
+
+$font_size: 9px;
+$line_height: 1.4;
+
+$fonts: (
+  'opensans': ("Open Sans", Arial, Helvetica, sans-serif),
+  'georgia': (Georgia, "Times New Roman", Times, serif),
+);
+
+
+/* ==============================
+   Grid
+   ============================== */
+
+$cols: 16;  // number of cols
+$cw: 80px;  // col width
+$cp: 20px;  // col padding (box-sizing: border-box; is important)
+
+
+/* ==============================
+   Grid
+   ============================== */
+
+// horizontal
+$media-direction: min;
+
+// vertical
+$media-direction-v: min;
+
+
+/* ==============================
+   Timings
+   ============================== */
+
+$timings: (
+  'fast':    .25s,
+  'medium':  .5s,
+  'slow':   1.0s,
+);
+
+
+/* ==============================
+   Z-Index
+   ============================== */
+
+$z-layers: (
+  'deep':     -9999,
+  'default':      1,
+  'dropdown':  3000,
+  'overlay':   4000,
+  'modal':     4001,
+);
